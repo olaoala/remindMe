@@ -1,0 +1,92 @@
+.container{
+    height: 100vh;
+    padding: 1em;
+}
+.container p{
+    color: #FF5631;
+    font-size: 1.5em;
+}
+.summaryContent{
+    display: flex;
+    padding: 1.5em;
+    border: 1px solid  #ffff;
+    border-radius: 20px;
+    max-width: 25%;
+    margin: 2em 0em 0em 30em;
+    
+}
+.summaryText{
+    padding: 1em;
+}
+.summary{
+    margin: .7em 0em 0em 2em;
+}
+.summary p{
+    color: black !important;
+    font-size: 2em;
+    font-weight: 600;
+}
+.summaryText p{
+    color: #ffff;
+    margin: 0.6em 1em .2em 0em ;
+}
+.summaryText h6{
+    color: #ffff;
+    margin: .2em ;
+
+}
+.summary{
+    width: 80px; /* Adjust the width and height as needed for your circle */
+    height: 80px;
+    background-color: #FF5631; /* Set a background color for the circle */
+    border-radius: 50%; /* Create a circular shape */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+.summary p{
+    color: #ffff;
+}
+.todoContainer{
+    color: #ffff;
+    /* border: 1px solid #ffff; */
+    max-height: 80em;
+    width: 40%;
+    padding: 1em;
+    margin: 2em 0em 0em 18em;
+    border-radius: 10px;
+}
+.addbtn{
+    display: flex;
+    margin: 0em 0em 0em 3em;
+}
+.addbtn p{
+    color: #ffff;
+    font-size: 1.35em;
+}
+.circle {
+    width: 15px;
+    height: 15px;
+    background-color: #FF5631; /* Set the circle's background color */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* Add pointer cursor to indicate it's clickable */
+    margin: 1.3em 0em 0em 1em;
+    padding: .6em;
+  }
+  
+  .plus {
+    font-size: 1em;
+    color: black; /* Set the color of the plus sign */
+    font-weight: bold;
+  }
+  
+  
+  
+  
+  
+  

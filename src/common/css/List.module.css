@@ -1,0 +1,54 @@
+li{
+    list-style: none;
+    background-color: #1E1E1E;
+    padding: 2em;
+    margin: 8px;
+    border: .2px solid #fff;
+    border-radius: 10px;
+    display: flex;
+    gap: 3em;
+    width: 35em;
+
+}
+ul{
+    margin: 0px;
+}
+
+.listcontainer p {
+    font-size: 1em;
+    color: #fff;
+    margin: 0.5em;
+    width: 15em;
+}
+.circle {
+    width: 20px;
+    height: 20px;
+    background-color: #FF5631; /* Set the circle's background color */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* Add pointer cursor to indicate it's clickable */
+    margin: 1.3em 0em 0em 4em;
+    padding: .6em;
+  }
+.redDot{
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #FF5631;
+    /* margin-right: 5px; */
+    margin-left: 7px;
+    border-radius: 50%;
+}
+.deletebtn{
+    color: black;
+    height: 2em;
+}
+input[type="radio"] {
+    margin-right: 5px; /* Adjust spacing between radio button and label */
+    padding: 12px;
+  }
+.taskControls{
+    margin-left: 6em;
+}

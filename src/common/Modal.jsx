@@ -1,14 +1,12 @@
 // TaskModal.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from  "./css/Modal.module.css" // Create a separate CSS file for modal styles
 
-const TaskModal = ({ isOpen, onClose, onAddTask }) => {
-  const [task, setTask] = useState({
-    name: "",
-    description: "",
-    priority: "Low",
-    reminder: "",
-  });
+const TaskModal = ({ isOpen, onClose, onAddTask ,modalType,selectedTask, tasks}) => {
+  const [showModal, setShowModal] = useState(false);
+  const [task, setTask] = useState({});
+
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,6 +14,25 @@ const TaskModal = ({ isOpen, onClose, onAddTask }) => {
       ...task,
       [name]: value,
     });
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  const markTaskAsCompleted = () => {
+    if (selectedTask){
+      setTask({
+        name: selectedTask.name || "",
+        description: selectedTask.description || "",
+        priority: "Low",
+        reminder: selectedTask.reminder || "",
+        status: "Done",
+        completed: true
+      });
+    }
+    console.log(task)
+    onClose()
   };
 
   const handleSubmit = (e) => {
@@ -29,8 +46,22 @@ const TaskModal = ({ isOpen, onClose, onAddTask }) => {
     });
   };
 
+  useEffect(() => {
+    if (selectedTask) {
+      setTask({
+        name: selectedTask.name || "",
+        description: selectedTask.description || "",
+        priority: "Low",
+        reminder: selectedTask.reminder || "",
+        status: "Done",
+        completed: true
+      });
+    }
+  }, [selectedTask]);
+
   return (
     isOpen && (
+      modalType === "addTask" ? (
       <div className={styles.modal}>
         <div className={styles.modalcontent}>
           <span className={styles.close} onClick={onClose}>
@@ -87,6 +118,19 @@ const TaskModal = ({ isOpen, onClose, onAddTask }) => {
           </form>
         </div>
       </div>
+      ): modalType === 'confirmation'? (
+        <div className={styles.modal}>
+          <div className={styles.modalcontent}>
+            <h3>Confirmation</h3>
+            <p>Are you done with this task?</p>
+            <div className={styles.confirmationbtns}>
+            <button onClick={markTaskAsCompleted}>Yes</button>
+            <button onClick={onClose}>No</button>
+            </div>
+          
+          </div>
+        </div>
+         ):null
     )
   );
 };

@@ -6,17 +6,12 @@ const ToggleSwitch = ({ label, id, isChecked, onToggle }) => {
     <div className={styles.container}>
       {label}{" "} <br />
       <div className={styles.toggleswitch}>
-        <input
-          type="checkbox"
-          className={styles.checkbox}
-          name={id} // Use the id as the name to make it unique
-          id={id} // Use the id as the id attribute to make it unique
-          checked={isChecked}
-          onChange={onToggle}
-        />
-        <label className={styles.label} htmlFor={id}>
-          <span className={styles.inner} />
-          <span className={styles.switch} />
+        <label className={styles.switch} >
+          <input  type="checkbox" 
+          name={id} 
+          id={id} 
+          onChange={onToggle}/>
+          <span className={styles.slider}></span>
         </label>
       </div>
     </div>

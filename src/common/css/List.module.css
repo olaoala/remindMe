@@ -1,4 +1,4 @@
-li{
+li {
     list-style: none;
     background-color: #1E1E1E;
     padding: 2em;
@@ -51,4 +51,7 @@ input[type="radio"] {
   }
 .taskControls{
     margin-left: 6em;
+}
+.badge{
+/* padding: 3em; */
 }

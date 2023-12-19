@@ -8,72 +8,16 @@ import alarmSound from "../Asset/alarm.mp3";
 
 
 const Todo = () => {
-  const task = [
-    {
-      id: 1,
-      name: 'Task 1',
-      description: 'Description for Task 1',
-      priority: 'High',
-      reminder: '2023-09-30 10:00 AM',
-      status : 'pending',
-      completed: false
-      
-    },
-    {
-      id:2,
-      name: 'Task 2',
-      description: 'Description for Task 2',
-      priority: 'Medium',
-      reminder: '2023-10-05 2:30 PM',
-      status : 'pending',
-      completed: false
-
-
-    },
-    {
-      id:3,
-      name: 'Task 3',
-      description: 'Description for Task 3',
-      priority: 'Low',
-      reminder: '2023-10-10 9:15 AM',
-      status : 'pending',
-      completed: false
-
-
-    },
-    {
-      id:4,
-      name: 'Task 4',
-      description: 'Description for Task 4',
-      priority: 'High',
-      reminder: '2023-10-10 9:15 AM',
-      status : 'pending',
-      completed: false
-
-
-    },
-    {
-      id:5,
-      name: 'Task 5',
-      description: 'Description for Task 5',
-      priority: 'Low',
-      reminder: '2023-10-10 9:15 AM',
-      status : 'pending',
-      completed: false
-
-
-    },
-  ];
+  const task = [{}];
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [taskList, setTaskList] = useState(task); 
   const [alarmAudio] = useState(new Audio(alarmSound));
 
   const handleAddTask = (newTask) => {
     const newTasks = [...taskList, newTask];
-    setTaskList(newTasks);
     localStorage.setItem("task", JSON.stringify(newTasks));
-    console.log(newTask)
-
+    setTaskList(newTasks);
+    console.log(newTask, task, taskList, newTasks)
     setIsModalOpen(false);
   };
 
@@ -81,10 +25,10 @@ const Todo = () => {
     const updatedTaskList = [...taskList];
     updatedTaskList.splice(index, 1);
     setTaskList(updatedTaskList);
-
     // Save the updated tasks to localStorage
     localStorage.setItem("tasks", JSON.stringify(updatedTaskList));
   };
+
 
   const setTaskReminderAlarm = (reminderTime) => {
     const currentTime = new Date()
@@ -106,11 +50,13 @@ const Todo = () => {
   
 
   };
+ 
   
 
   useEffect(() => {
-    const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    const savedTasks = JSON.parse(localStorage.getItem("task")) || [];
     setTaskList(savedTasks);
+    // console.log(taskList.length, taskList)
   }, []);
   
   useEffect(() => {
@@ -151,11 +97,16 @@ const Todo = () => {
                     />
                 </div>
 
-                <List
+                {taskList.length>0 && (
+                  <List
         tasks={taskList}
         id={taskList.id}
         onDeleteTask={handleDeleteTask}
+        // onToggleStatus={handleToggleStatus}
+        // onDone={markDone}
       />
+                )}
+                
             </div>
 
         </div>

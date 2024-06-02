@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import styles from "./css/List.module.css"
-import {RiDeleteBin6Fill} from "react-icons/ri"
+import { RiDeleteBinLine } from "react-icons/ri";
+import { TbEdit } from "react-icons/tb";  
 import ToggleSwitch from "./Toggle";
 import TaskModal from "./Modal";
 
@@ -56,11 +57,7 @@ const List = ({ tasks, onDeleteTask, onToggleStatus, onDone }) => {
     };
 
 
-    const handleRadioClick = (task, id) => {
-      console.log(tasks)
-      setSelectedTask(task);
-      setShowModal(true);
-    };
+ 
 
 
     const handleUpdateClick = (task) => {
@@ -93,9 +90,7 @@ const List = ({ tasks, onDeleteTask, onToggleStatus, onDone }) => {
       
       <div className={styles.lists}>
         
-      <input id={`task-${index}`}
-       type="radio"  
-      onClick={() => handleRadioClick(task)}/>
+      
         <label  htmlFor={`task-${index}`}>{task.name}</label>
         {task.priority === "High" &&
           Array.from({ length: 3 }).map((_, i) => (
@@ -137,15 +132,18 @@ const List = ({ tasks, onDeleteTask, onToggleStatus, onDone }) => {
       </div>
 
       <div className={styles.taskControls}>
+        <span onClick={handleDeleteTask}><RiDeleteBinLine /></span>
+        <span onClick={handleUpdateClick}><TbEdit /></span>
+      
 
-      <ToggleSwitch
+      {/* <ToggleSwitch
                 label="Task In Progress"
                 id={`toggle-${index}`} // Provide a unique id based on the index
                 //onToggle={() => handleToggleStatus(index)}
                 onToggle={onToggleStatus}
                 isChecked={task.status === "in-Progress"}   
                 disabled={task.completed}             
-              />    
+              />     */}
 
       </div>
 

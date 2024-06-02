@@ -20,7 +20,7 @@
     text-align: center;
     position: relative;
     color: black;
-    width: 20em;
+    /* width: 20em; */
   }
 
   .modalcontent p{

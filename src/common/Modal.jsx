@@ -116,11 +116,14 @@ const TaskModal = ({ isOpen, onClose, onAddTask, onUpdateTask ,modalType,selecte
       ): modalType === 'confirmation'? (
         <div className={styles.modal}>
           <div className={styles.modalcontent}>
+          <span className={styles.close} onClick={onClose}>
+            &times;
+          </span>
             <h3>Confirmation</h3>
             <p>Are you done with this task?</p>
             <div className={styles.confirmationbtns}>
-            <button onClick={() => onConfirm(selectedTask,id)}>Yes</button>
-            <button onClick={onClose}>No</button>
+            <button className={styles.savebutton} onClick={() => onConfirm(selectedTask,id)}>Yes</button>
+            <button className={styles.savebutton} onClick={onClose}>No</button>
             </div>
           
           </div>

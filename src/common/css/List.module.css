@@ -1,12 +1,12 @@
 li {
     list-style: none;
     background-color: #1E1E1E;
-    padding: 2em;
+    padding: 1em;
     margin: 8px;
     border: .2px solid #fff;
-    border-radius: 10px;
+    border-radius: 2em;
     display: flex;
-    gap: 3em;
+    gap: 7em;
     width: 35em;
 
 }
@@ -50,7 +50,12 @@ input[type="radio"] {
     padding: 12px;
   }
 .taskControls{
-    margin-left: 6em;
+    display: flex;
+    gap: 2;
+}
+.taskControls span{
+    margin: 1em;
+    font-size: 1.5em;
 }
 .badge{
 /* padding: 3em; */
